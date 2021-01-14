@@ -1,0 +1,29 @@
+<html>
+<head>
+<link rel="stylesheet" href="C:/Users/Fallo/Desktop/thotless_website/stylesheet.css">
+<link rel="shortcut icon" href="C:/Users/Fallo/Desktop/thotless_website/images/favicon.ico" />
+<link rel="apple-touch-icon" href="C:/Users/Fallo/Desktop/thotless_website/images/apple-touch-icon.png" />
+</head>
+
+<title>Clothing store</title>
+
+<h1 class="sec2">Want to design your own shirt? click on the design lab button!</h1>
+<button class="button button2" onclick="pgrdstore" id="hm">Home</button>
+<button class="button button2" onclick="pgrdstore" id="dsl">Design Lab</button>
+
+<!--"pageredirects"-->
+<script>
+function pgrdhome(){
+  window.location = "C:/Users/Fallo/Desktop/thotless_website/pages/home.html";
+}
+function pgrddesi(){
+  window.location = "C:/Users/Fallo/Desktop/thotless_website/pages/storedes.html";
+}
+document.getElementById("hm").addEventListener("click", function(){
+    pgrdhome();
+})
+document.getElementById("dsl").addEventListener("click", function(){
+    pgrddesi();
+})
+</script>
+</html>

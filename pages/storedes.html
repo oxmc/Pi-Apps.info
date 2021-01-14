@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="C:/Users/Fallo/Desktop/thotless_website/stylesheet.css">
+<link rel="shortcut icon" href="C:/Users/Fallo/Desktop/thotless_website/images/favicon.ico" />
+<link rel="apple-touch-icon" href="C:/Users/Fallo/Desktop/thotless_website/images/apple-touch-icon.png" />
+</head>
+
+<!--
+  <video id="myVideo" width="320" height="176" controls="controls">
+    <source src="C:\Users\Fallo\Videos\videos\totebot head alarm.mp4" type="video/mp4">
+    <source src="C:\Users\Fallo\Desktop\test.mp3" type="video/mp3">
+    Your browser does not support HTML5 video.
+  </video>
+-->
+
+<title>Desgin lab</title>
+
+<h1 class="sec2">Design Lab</h1>
+<h1 class="monospace sec2">____________________________________________________________________________________</h1>
+<h2 class="monospace sec2">Step one create an image to add to a product</h2>
+<h1 class="monospace sec2">We use logomakr to create our designs please support them.</h1>
+
+<iframe title="Logo designer" height="600px" width="700px" src="https://logomakr.com/0kKlXb"></iframe>
+<h1></h1>
+<h1 class="monospace sec2">Step two Upload your file to us and choose a product and payment option.</h1>
+<p class="monospace sec2">Click on the "Choose File" button to upload a file:</p>
+
+<form action="C:/Users/Fallo/Desktop/thotless_website/pages/php/upload.php" class="monospace sec3" method="post" enctype="multipart/form-data">
+  <input type="file" name="fileToUpload" id="fileToUpload">
+  <input type="submit" value="Upload Image" name="submit">
+</form>
+
+<h1 class="monospace sec2">Thats It! Your Done! We will start working on it as soon as we can!</h1>
+
+<button class="button button2" onclick="pgrdhome" id="hm">Home</button>
+<button class="button button2" onclick="pgrdstore()" id="st">Store</button>
+
+<!--"pageredirects"-->
+<script>
+function pgrdhome(){
+  window.location = "C:/Users/Fallo/Desktop/thotless_website/pages/home.html";
+}
+function pgrdstore(){
+  window.location = "C:/Users/Fallo/Desktop/thotless_website/pages/store.html";
+}
+document.getElementById("hm").addEventListener("click", function(){
+    pgrdhome();
+})
+document.getElementById("store").addEventListener("click", function(){
+    pgrdstore();
+})
+</script>
+</html>
