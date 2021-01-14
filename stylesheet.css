@@ -187,6 +187,14 @@ div.d {
   display: inline-block;
 }
 
+div.d2 {
+  background-color: lightgrey;
+  width: 700px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+}
+
 div.round2 {
   border: 2px solid red;
   border-radius: 8px;
