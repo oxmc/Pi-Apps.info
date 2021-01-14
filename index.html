@@ -38,6 +38,15 @@
 <hr />
 
 <h1 class="center">Downloads</h1>
-    <button onclick="Download(1)" class="button" style="width:30%"><i class="fa fa-download"></i> Download Pi-Apps </button>
-    <button onclick="Download(2)" class="button2" style="width:100%"><i class="fa fa-download"></i> Download Pi-Apss Custom </button>
+    <button onclick="Download(1)" class="button2" style="width:30%"><i class="fa fa-download"></i> Download Pi-Apps </button>
+    <button onclick="Download(2)" class="button2" style="width:30%"><i class="fa fa-download"></i> Download Pi-Apss Custom </button>
 
+    <script>
+      function Download() {
+        if (id = "1") {
+          window.location.href = 'https://oxmc.github.io/Pi-Apps.info/files/botspotpiapps.sh'; //This will download the current Pi-Apps installation script.
+        } elseif (id = "2") {
+          window.location.href = 'https://oxmc.github.io/Pi-Apps.info/Pi-Apps_Custom.html'; //This will redirect to Pi-Apps_Custom.html
+        } else {
+          window.alert("Download id incorrect")
+        }
