@@ -168,3 +168,26 @@ div.center {
   text-align: center;
   display: center;
 }
+
+div.round {
+  text-align: center;
+  display: center;
+}
+
+div.blue {
+  text-color: blue;
+}
+
+div.d {
+  background-color: lightgrey;
+  width: 300px;
+  border: 15px solid green;
+  padding: 50px;
+  margin: 20px;
+}
+
+div.round2 {
+  border: 2px solid red;
+  border-radius: 8px;
+}
+
