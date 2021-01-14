@@ -39,12 +39,16 @@
 
 <div class="center">
 <h1 class="center">Downloads</h1>
-    <button onclick="Download(1)" class="button2" style="width:30%"><i class="fa fa-download"></i> Download Pi-Apps </button>
+    <button onclick="Download(1)" id="dnlbtn" class="button2" style="width:30%"><i class="fa fa-download"></i> Download Pi-Apps </button>
     <!-- unsed <button onclick="Download(2)" class="button2" style="width:30%"><i class="fa fa-download"></i> Download Pi-Apps Custom </button> -->
 
     <script>
+      var downloadbtn=document.getElementById("dnlbtn")
+      
       function Download() {
         if (id = "1") {
+          downloadbtn.innerHTML = "Loading"
+          downloadbtn.style.property = "fa-spinner fa-spin"
           window.location.href = 'https://oxmc.github.io/Pi-Apps.info/files/Pi-Apps_install.sh'; //This will download the current Pi-Apps installation script.
         } elseif (id = "2") {
           window.location.href = 'https://oxmc.github.io/Pi-Apps.info/Pi-Apps_Custom.html'; //This will redirect to Pi-Apps_Custom.html
@@ -67,7 +71,7 @@
         <div class="c d2 round2 sec2" style="display: inline-block;">
         <p>Creator: BotSpot</p>
         <p>Website: oxmc</p>
-          <p>Discord server: <a href="https://discord.gg/RXSTvaUvuu">Join server</a></p>
+        <p>Discord server: <a href="https://discord.gg/RXSTvaUvuu">Join server</a></p>
        </h1>
        </div>
 </div>
