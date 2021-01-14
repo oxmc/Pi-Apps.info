@@ -184,10 +184,12 @@ div.d {
   border: 15px solid green;
   padding: 50px;
   margin: 20px;
+  display: inline-block;
 }
 
 div.round2 {
   border: 2px solid red;
   border-radius: 8px;
+  display: inline-block;
 }
 
