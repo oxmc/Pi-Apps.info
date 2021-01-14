@@ -39,13 +39,20 @@
 
 <div class="center">
 <h1 class="center">Downloads</h1>
-    <a href="https://oxmc.github.io/Pi-Apps.info/files/Pi-Apps_install.sh" download>
+  <button onclick="Download(1)" id="dnlbtn" class="button2" style="width:30%"><i class="fa fa-download"></i> Download Pi-Apps </button>
+  <!--  <a href="https://oxmc.github.io/Pi-Apps.info/files/Pi-Apps_install.sh" download>
     <button onclick="Download(1)" id="dnlbtn" class="button2" style="width:30%"><i class="fa fa-download"></i> Download Pi-Apps </button>
     </a>
-    <!-- unsed <button onclick="Download(2)" class="button2" style="width:30%"><i class="fa fa-download"></i> Download Pi-Apps Custom </button> -->
+    <button onclick="Download(2)" class="button2" style="width:30%"><i class="fa fa-download"></i> Download Pi-Apps Custom </button> -->
 
     <script>
       var downloadbtn=document.getElementById("dnlbtn")
+      
+      downloadbtn.addEventListener("click", downloadpiapps);
+
+      function downloadpiapps() {
+        downloadbutton.innerHTML = "github.com/Botspot/Pi-Apps";
+        }
       
       function Download(id) {
         if (id = "1") {
