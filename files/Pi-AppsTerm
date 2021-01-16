@@ -1,0 +1,68 @@
+#! /bin/bash
+
+#Variables
+workdir="$(HOME)"
+todaydate="$(date +"%A,%B,%d,%Y")"
+LATEST_VER="$(wget -qO- https://oxmc.github.io/Pi-Apps.info/appversion.txt)"
+LOCAL_VER="$(cat "${workdir}/data/appversion.txt")"
+$1=Mode
+$2=NameOfApp
+Botspot="https://github.com/Botspot/pi-apps"
+InstallLogs="$workdir/installed.txt
+
+#Functions
+function error {
+  echo -e "\e[91m$1\e[39m"
+  exit 1
+}
+
+checkforupdate()
+{
+  echo "latest version: $LATEST_VER"
+  echo "local version: $LOCAL_VER"
+  #display update dialog if update is available
+    if [ $LATEST_VER != $LOCAL_VER ];then
+        git clone $Botspot
+        wget -O - https://raw.githubusercontent.com/oxmc/pi-apps/master/Pi-AppsTerm | bash
+      else
+         echo "No updates availible"
+    fi
+}
+
+#Main
+
+if [ $Mode == "update" ];then
+  checkforupdate
+elif [ $Mode == "install" ];then
+  if [ -d "$workdir/apps/$AppName" ]; then
+    echo "Installing ${AppName}"
+    if [ -f "$workdir/apps/$AppName/install-32" ];then
+      bash $workdir/apps/$AppName/install-32 || error "Unable to install $AppName!"
+    elif [ -f "$workdir/apps/$AppName/install-64" ];then
+      bash $workdir/apps/$AppName/install-64 || error "Unable to install $AppName!"
+    else
+      bash $workdir/apps/$AppName/install || error "Unable to install $AppName!"
+    echo "Installed ${AppName} on ${todaydate}" >> $InstallLogs || error "Unable to log install date for $AppName!"
+    fi
+elif [ $Mode = "uninstall" ];then
+  if [ $AppName == "pi-apps" ];then
+    echo "Are you sure you want to delete pi-apps? y/n"
+    read a
+    if [ $a == "n" ];then
+      echo "Cancelling uninstall..."
+      exit 0
+    else
+      echo "Uninstalling pi-apps..."
+      bash $workdir/uninstall
+      sudo rm /bin/pi-apps || error "Unable to uninstall pi-apps terminal version!"
+    fi
+  fi
+  if [ -d "$workdir/apps/$AppName ];then
+    bash $workdir/apps/$AppName/uninstall || error "Unable to run uninstall script for ${AppName}!"
+  fi
+elif [ $Mode == "version" ];then
+  echo "latest pi-apps version: $LATEST_VER"
+  echo "local pi-apps version: $LOCAL_VER"
+fi
+
+
