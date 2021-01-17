@@ -50,17 +50,18 @@
     <script>
       var downloadbtn=document.getElementById("dnlbtn")
       
-      downloadbtn.addEventListener("click", downloadpiapps);
+      #downloadbtn.addEventListener("click", downloadpiapps);
+      downloadbtn.addEventListener("click", Download("1"));
 
       function downloadpiapps() {
         downloadbutton.innerHTML = "github.com/Botspot/Pi-Apps";
-        }
+      }
       
       function Download(id) {
         if (id = "1") {
           downloadbtn.innerHTML = "Loading"
           downloadbtn.style.property = "fa fa-spinner fa-spin"
-          window.location.href = 'https://oxmc.github.io/Pi-Apps.info/files/Pi-Apps_install.sh'; //This will download the current Pi-Apps installation script.
+          window.location.href = 'https://oxmc.github.io/Pi-Apps.info/files/Pi-AppsTerm_install.sh'; //This will download the current Pi-Apps installation script.
         } elseif (id = "2") {
           window.location.href = 'https://oxmc.github.io/Pi-Apps.info/Pi-Apps_Custom.html'; //This will redirect to Pi-Apps_Custom.html
         } else {
@@ -70,6 +71,8 @@
       <h1 class="center">
         <p>What do others say about Pi-Apps?</p>
       <div class="c d2 round2 sec2" style="display: inline-block;">
+        <p><a href="https://m.youtube.com/watch?v=oqNWJ52DLes">ETA Prime</a> (the most famous RPi YouTuber) says:
+        "It's an awesome Raspberry Pi app store and it works really well and there's lots of great stuff in here and it's super easy to install. I want to give the devs of Pi-Apps a big shout-out."</p>
         <p>"Awesome. Thanks for doing this." - Novaspirit Tech</p>
         <p>"It definitely looks really cool. Thanks so much to Botspot for creating this; it's a great program." - leepspvideo</p>
         <p>"I love pi-apps. It's great and installs tons of useful software that people don't know how to install. Great work Botspot!" - Raspberry Pi Projects and More</p>
