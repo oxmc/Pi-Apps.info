@@ -12,6 +12,6 @@ git clone https:/github.com/oxmc/Pi-Apps.info.git || error "Unable to download P
 git clone https://github.com/Botspot/pi-apps.git || error "Unable to download pi-apps!"
 rename Pi-Apps.info PITM || error "Unable to change folder name!"
 cd PITM || error "Unable to change directiry to PITM!"
-chmod +x files/Pi-AppsTerm || error "Unable to change executable permissons!"
+chmod +x *.* || error "Unable to change executable permissons!"
 cp files/Pi-AppsTerm /usr/bin/pi-apps || error "Unable to add Pi-Apps to terminal!"
 pi-apps version || error "Unable to run version command, pi-appsterm might be installed incorrectly!"
