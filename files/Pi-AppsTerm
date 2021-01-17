@@ -21,7 +21,7 @@ checkforupdate()
   #Tells user latest version of Pi-AppsTerm
   echo "latest version: $LATEST_VER"
   echo "local version: $LOCAL_VER"
-  #display update dialog if update is available
+  #Display update dialog if update is available
     if [ $LATEST_VER != $LOCAL_VER ];then
         #Download Botspots Awesome RPI app store!
         git clone $Botspot
