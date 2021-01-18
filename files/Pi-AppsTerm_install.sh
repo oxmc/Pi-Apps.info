@@ -2,7 +2,7 @@
 
 #Variables
 
-message="Thanks to Itai on discord for helping me fix install errors!"
+message="Thanks to Itai, and beiop on discord for helping me fix install errors!"
 
 #Functions
 function error {
@@ -13,8 +13,16 @@ function error {
 #Main
 echo "${message}"
 sudo apt install git || error "Unable to install git!"
-git clone https://github.com/oxmc/Pi-Apps.info.git || error "Unable to download Pi-AppsTerm!"
-git clone https://github.com/Botspot/pi-apps.git || error "Unable to download pi-apps!"
+if [ -d "/usr/local/bin/Pi-AppsTerm" ];then
+  echo "Pi-AppsTerm is already installed! skipping..."
+else
+  git clone https://github.com/oxmc/Pi-Apps.info.git || error "Unable to download Pi-AppsTerm!"
+fi
+if [ -d "~/pi-apps" ];then
+  echo "Pi-Apps is already installed! skipping..."
+else
+  git clone https://github.com/Botspot/pi-apps.git || error "Unable to download pi-apps!"
+fi
 sudo mv Pi-Apps.info /usr/local/bin/Pi-AppsTerm || error "Unable to move folder to /usr/local/bin!"
 cd /usr/local/bin/Pi-AppsTerm || error "Unable to change directiry to Pi-AppsTerm!"
 sudo chmod +x *.* || error "Unable to change executable permissons!"
