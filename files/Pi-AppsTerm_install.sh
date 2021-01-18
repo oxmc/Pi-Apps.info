@@ -19,5 +19,5 @@ mv Pi-Apps.info PITM || error "Unable to change folder name!"
 cd PITM || error "Unable to change directiry to PITM!"
 chmod +x *.* || error "Unable to change executable permissons!"
 sudo cp files/Pi-AppsTerm /usr/bin/pi-apps || error "Unable to add Pi-Apps to terminal!"
-sudo chmod +x /usr/bin/pi-apps
+sudo chmod +x /usr/bin/pi-apps || error "Unable to change executable permissons! pi-apps will not work in terminal!"
 pi-apps version || error "Unable to run version command, pi-appsterm might be installed incorrectly!"
