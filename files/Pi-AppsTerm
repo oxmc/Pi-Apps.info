@@ -38,32 +38,35 @@ checkforupdate()
 if [ $# == "2" ];then
   if [ $Mode == "update" ];then
     checkforupdate
-  elif [ $Mode == "install" ];thenu
-    if [ -d "$workdir/apps/$AppName" ]; then
-      echo "Installing ${AppName}"
-      if [ -f "$workdir/apps/$AppName/install-32" ];then
-        bash $workdir/apps/$AppName/install-32 || error "Unable to install $AppName!"
-      elif [ -f "$workdir/apps/$AppName/install-64" ];then
-        bash $workdir/apps/$AppName/install-64 || error "Unable to install $AppName!"
+  elif [ $Mode == "install" ];then
+      if [ -d "$workdir/apps/$AppName" ]; then
+        echo "Installing ${AppName}"
+        if [ -f "$workdir/apps/$AppName/install-32" ];then
+          bash $workdir/apps/$AppName/install-32 || error "Unable to install $AppName!"
+        elif [ -f "$workdir/apps/$AppName/install-64" ];then
+            bash $workdir/apps/$AppName/install-64 || error "Unable to install $AppName!"
+        else
+          bash $workdir/apps/$AppName/install || error "Unable to install $AppName!"
+          echo "Installed ${AppName} on ${todaydate}" >> $InstallLogs || error "Unable to log install date for $AppName!"
+        fi
       else
-        bash $workdir/apps/$AppName/install || error "Unable to install $AppName!"
-        echo "Installed ${AppName} on ${todaydate}" >> $InstallLogs || error "Unable to log install date for $AppName!"
+        error "Unkown appname '$2'! Please make sure to spell it correctly!"
       fi
   elif [ $Mode = "uninstall" ];then
       if [ $AppName == "pi-apps" ];then
         echo "Are you sure you want to delete pi-apps? y/n"
         read a
-      if [ $a == "n" ];then
-        echo "Cancelling uninstall..."
-        exit 0
-      else
-        echo "Uninstalling pi-apps..."
-        bash $workdir/uninstall || error "Unable to run uninstall file!"
+        if [ $a == "n" ];then
+          echo "Cancelling uninstall..."
+          exit 0
+        else
+          echo "Uninstalling pi-apps..."
+          bash $workdir/uninstall || error "Unable to run uninstall file!"
+        fi
       fi
-    fi
-    if [ -d "$workdir/apps/$AppName" ];then
-      bash $workdir/apps/$AppName/uninstall || error "Unable to run uninstall script for ${AppName}!"
-    fi
+      if [ -d "$workdir/apps/$AppName" ];then
+        bash $workdir/apps/$AppName/uninstall || error "Unable to run uninstall script for ${AppName}!"
+      fi
   elif [ $Mode == "version" ];then
       echo "latest pi-apps version: $LATEST_VER"
       echo "local pi-apps version: $LOCAL_VER"
