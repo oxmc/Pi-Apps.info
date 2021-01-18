@@ -1,15 +1,16 @@
 #! /bin/bash
 
 #Variables
-workdir="~/PITM/files"
+workdir="~/pi-apps"
+homedir="/usr/local/bin/Pi-AppsTerm"
 todaydate="$(date +"%A,%B,%d,%Y")"
 LATEST_VER="$(wget -qO- https://oxmc.github.io/Pi-Apps.info/data/appversion.txt)"
-LOCAL_VER="$(cat "${workdir}/data/appversion.txt")"
+LOCAL_VER="$(cat "${homedir}/data/appversion.txt")"
 $1=Mode
 $2=NameOfApp
 Botspot="https://github.com/Botspot/pi-apps"
 oxmc="https://github.io/oxmc/Pi-Apps.info"
-InstallLogs="$workdir/installed.txt"
+InstallLogs="$homedir/installed.txt"
 
 #Functions
 function error {
@@ -46,7 +47,7 @@ if [ $# == "2" ];then
         bash $workdir/apps/$AppName/install-64 || error "Unable to install $AppName!"
       else
         bash $workdir/apps/$AppName/install || error "Unable to install $AppName!"
-      echo "Installed ${AppName} on ${todaydate}" >> $InstallLogs || error "Unable to log install date for $AppName!"
+        echo "Installed ${AppName} on ${todaydate}" >> $InstallLogs || error "Unable to log install date for $AppName!"
       fi
   elif [ $Mode = "uninstall" ];then
      if [ $AppName == "pi-apps" ];then
