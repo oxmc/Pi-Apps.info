@@ -18,7 +18,8 @@ if [ -d "/usr/local/bin/Pi-AppsTerm" ];then
 else
   git clone https://github.com/oxmc/Pi-Apps.info.git || error "Unable to download Pi-AppsTerm!"
 fi
-if [ -d "~/pi-apps" ];then
+cd ~
+if [ -d "pi-apps" ];then
   echo "Pi-Apps is already installed! skipping..."
 else
   git clone https://github.com/Botspot/pi-apps.git || error "Unable to download pi-apps!"
