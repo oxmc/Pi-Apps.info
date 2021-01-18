@@ -1,7 +1,7 @@
 #! /bin/bash
 
 #Variables
-workdir="$(HOME)"
+workdir="$(readlink -f "$(dirname "$0")")"
 todaydate="$(date +"%A,%B,%d,%Y")"
 LATEST_VER="$(wget -qO- https://oxmc.github.io/Pi-Apps.info/data/appversion.txt)"
 LOCAL_VER="$(cat "${workdir}/data/appversion.txt")"
@@ -34,15 +34,6 @@ checkforupdate()
 }
 
 #Main
-if [ $Mode == "help" ];then
-  echo "To install programs type 'pi-apps install nameofapp', example 'pi-apps install All Is Well' this will install the All Is Well app"    
-  echo "To update pi-apps type 'pi-apps update' this will check if pi-apps is up to date"
-  echo "To uninstall an app type 'pi-apps uninstall nameofapp' this will uninstall the app specified, example 'pi-apps uninstall All Is Well' this will uninstall the All Is Well app"  
-  echo "To check the current version of pi-apps type 'pi-apps version', this will tell you the current verion of pi-apps i.e up to date! new update availible! and out of date! update imedently!"
-  exit 0
-else
-  error "Unkown mode given, for help type 'pi-apps help'"
-fi
 if [ $# == "2" ];then
  if [ $Mode == "update" ];then
     checkforupdate
@@ -77,6 +68,16 @@ if [ $# == "2" ];then
     echo "latest pi-apps version: $LATEST_VER"
     echo "local pi-apps version: $LOCAL_VER"
     exit 0
+  fi
+elif [ $# == "1" ];then
+  if [ $Mode == "help" ];then
+    echo "To install programs type 'pi-apps install nameofapp', example 'pi-apps install All Is Well' this will install the All Is Well app"    
+    echo "To update pi-apps type 'pi-apps update' this will check if pi-apps is up to date"
+    echo "To uninstall an app type 'pi-apps uninstall nameofapp' this will uninstall the app specified, example 'pi-apps uninstall All Is Well' this will uninstall the All Is Well app"  
+    echo "To check the current version of pi-apps type 'pi-apps version', this will tell you the current verion of pi-apps i.e up to date! new update availible! and out of date! update imedently!"
+    exit 0
+  else
+    error "Unkown mode given, for help type 'pi-apps help'"
   fi
 else
   error "Invalid amounts of arguments recived, please use 'pi-apps <Mode> <AppName>' to use this program correctly, if you need help please type 'pi-apps help'"
