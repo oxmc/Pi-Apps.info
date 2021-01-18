@@ -1,7 +1,7 @@
 #! /bin/bash
 
 #Variables
-workdir="~/PITM/files/uninstall"
+workdir="~/PITM/files"
 todaydate="$(date +"%A,%B,%d,%Y")"
 LATEST_VER="$(wget -qO- https://oxmc.github.io/Pi-Apps.info/data/appversion.txt)"
 LOCAL_VER="$(cat "${workdir}/data/appversion.txt")"
