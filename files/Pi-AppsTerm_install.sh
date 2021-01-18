@@ -3,7 +3,6 @@
 #Variables
 
 message="Thanks to Itai on discord for helping me fix install errors!"
-workdir="~/PITM"
 
 #Functions
 function error {
