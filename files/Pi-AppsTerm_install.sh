@@ -9,3 +9,7 @@ function error {
 
 #Main
 git clone https://github.com/oxmc/Pi-AppsTerm.git || error "Unable to download files, git may not be installed, if not there is a problem." "sudo apt install git"
+cd ~/Pi-AppsTerm
+cd files
+chmod +x *.*
+bash Pi-AppsTerm_install.sh
