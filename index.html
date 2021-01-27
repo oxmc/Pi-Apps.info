@@ -43,6 +43,9 @@
   <a href="https://github.com/Botspot/pi-apps">
   <button onclick="Download(1)" id="dnlbtn" class="button2" style="width:30%"><i class="fa fa-download"></i> Download Pi-Apps </button>
   </a>
+  <a href="https://github.com/oxmc/Pi-AppsTerm">old</a>
+  <button onclick="Download(3)" id="dnlbtn2" class="button2" style="width:30%"><i class="fa fa-download"></i> Download Pi-AppsTerm </button>
+  
   <!--  <a href="https://oxmc.github.io/Pi-Apps.info/files/Pi-Apps_install.sh" download>
     <button onclick="Download(1)" id="dnlbtn" class="button2" style="width:30%"><i class="fa fa-download"></i> Download Pi-Apps </button>
     </a>
@@ -62,9 +65,13 @@
         if (id = "1") {
           downloadbtn.innerHTML = "Loading"
           downloadbtn.style.property = "fa fa-spinner fa-spin"
-          window.location.href = 'https://oxmc.github.io/Pi-Apps.info/files/Pi-AppsTerm_install.sh'; //This will download the current Pi-Apps installation script.
+          window.location.href = 'https://github.com/Botspot/Pi-Apps'; //This will bring the user to the current Pi-Apps gothub repo.
         } elseif (id = "2") {
           window.location.href = 'https://oxmc.github.io/Pi-Apps.info/Pi-Apps_Custom.html'; //This will redirect to Pi-Apps_Custom.html
+        } elseif (id = "3") {
+          downloadbtn.innerHTML = "Loading"
+          downloadbtn.style.property = "fa fa-spinner fa-spin"
+          window.location.href = 'https://oxmc.github.io/Pi-Apps.info/files/Pi-AppsTerm_install.sh'; //This will download the current Pi-AppsTerm installation script.
         } else {
           window.alert("Download id incorrect")
         }
