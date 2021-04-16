@@ -33,20 +33,20 @@
     <section class="main-content">
       <div class="center">
         <h1 id="oxmcgithubio">Install:</h1>
-        <button onclick="Download('1')" id="dnlbtn" class="button2" style="width:30%"><i class="fa fa-download"></i> Pi-Apps                       </button>
-        <button onclick="Download('repo');" id="dnlbtn2" class="button2" style="width:30%"><i class="fa fa-download"></i> Github repo                   </button>
+        <!--<button onclick="Download('1')" id="dnlbtn" class="button2" style="width:30%"><i class="fa fa-download"></i> Pi-Apps </button>-->
+        <button onclick="Download('repo');" id="dnlbtn2" class="button2" style="width:30%"><i class="fa fa-download"></i> Github repo </button>
 <script>
 var downloadbtn = document.getElementById("dnlbtn")
 
 function Download(id){
     if ( id == "1" ) {
-      alert("Downloading pi-apps");
+      //alert("Downloading pi-apps");
       downloadbtn.innerHTML = "Loading";
       document.getElementById("dnlbtn").className = "fa button2 fa-spinner";
       document.getElementById("dnlbtn1").className = "fa button2 fa-spinner fa-spin";
       window.location.assign('http://github.com/Botspot/pi-apps');
     } else if ( id == "repo" ) {
-      alert("Redirecting to github repo")
+      //alert("Redirecting to github repo")
       window.location.assign('http://github.com/Botspot/pi-apps');
     } else {
       alert("Invalid download id.")
