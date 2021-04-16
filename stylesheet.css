@@ -201,3 +201,9 @@ div.round2 {
   display: inline-block;
 }
 
+footer {
+  text-align: center;
+  padding: 3px;
+  background-color: #157878;
+  color: white;
+}
